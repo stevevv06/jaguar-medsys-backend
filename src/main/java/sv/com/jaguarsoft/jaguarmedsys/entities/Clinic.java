@@ -1,6 +1,7 @@
 package sv.com.jaguarsoft.jaguarmedsys.entities;
 
 import lombok.*;
+import com.fasterxml.jackson.annotation.*;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,13 +24,17 @@ public class Clinic {
     private @NonNull String address;
     private @NonNull String phone1;
     private String phone2;
+
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="company_id", 
         referencedColumnName="id")
     private @NonNull Company company;
+
     private @NonNull LocalDateTime created;
     private LocalDateTime modified;
 
+    @JsonBackReference
     @OneToMany(mappedBy="clinic", 
         targetEntity=Appointment.class, 
         fetch=FetchType.LAZY)

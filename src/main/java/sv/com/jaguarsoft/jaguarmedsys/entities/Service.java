@@ -1,6 +1,7 @@
 package sv.com.jaguarsoft.jaguarmedsys.entities;
 
 import lombok.*;
+import com.fasterxml.jackson.annotation.*;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
@@ -21,6 +22,7 @@ public class Service {
     private @NonNull LocalDateTime created;
     private LocalDateTime modified;
 
+    @JsonBackReference
     @OneToMany(mappedBy="service", 
     targetEntity=Appointment.class, 
     fetch=FetchType.LAZY)
