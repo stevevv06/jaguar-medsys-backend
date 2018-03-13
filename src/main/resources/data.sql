@@ -15,7 +15,9 @@ values (4, 'Consuelo Candelaria', 2, '1989-08-01','LKJ','2323-6769',null,null,'2
 insert into doctors (id,full_name, specialities, color, created, modified) 
 values (1,'Dr 1', 'ABC', 'blue','2018-03-11 10:10:10',null);
 insert into doctors (id,full_name, specialities, color, created, modified) 
-values (2,'Dr 2', 'ZXC', 'blue','2018-03-11 10:10:10',null);
+values (2,'Dr 2', 'ZXC', 'green','2018-03-11 10:10:10',null);
+insert into doctors (id,full_name, specialities, color, created, modified) 
+values (3,'Dr 3', 'WER', 'yellow','2018-03-11 10:10:10',null);
 
 insert into services(id, service, created)
 values (1, 'Ortodoncia', '2018-03-11 10:10:10');
@@ -39,5 +41,7 @@ values(2,2,1,2,1,'2018-03-15 10:30:00', '2018-03-15 11:00:00','2018-03-11 10:10:
 insert into appointments(id, patient_id, doctor_id, service_id, clinic_id, start, end, created)
 values(3,3,2,3,2,'2018-03-15 08:00:00', '2018-03-15 08:30:00','2018-03-11 10:10:10');
 insert into appointments(id, patient_id, doctor_id, service_id, clinic_id, start, end, created)
-values(4,2,2,1,2,'2018-03-15 15:00:00', '2018-03-15 15:30:00','2018-03-11 10:10:10');
+values(4,2,3,1,2,'2018-03-15 15:00:00', '2018-03-15 15:30:00','2018-03-11 10:10:10');
+insert into appointments(id, patient_id, doctor_id, service_id, clinic_id, start, end, created)
+values(5,1,1,1,1,'2018-03-17 10:00:00', '2018-03-17 10:30:00','2018-03-11 10:10:10');
 
