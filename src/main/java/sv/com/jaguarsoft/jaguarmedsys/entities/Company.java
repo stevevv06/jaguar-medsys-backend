@@ -15,6 +15,9 @@ import javax.persistence.FetchType;
 @Getter @Setter
 @NoArgsConstructor
 @ToString @EqualsAndHashCode
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class, 
+  property = "id")
 public class Company {
     @Id @GeneratedValue
     private Long id;    
