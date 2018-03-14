@@ -1,7 +1,9 @@
 package sv.com.jaguarsoft.jaguarmedsys;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class JaguarMedsysBackendApplication {
@@ -10,6 +12,10 @@ public class JaguarMedsysBackendApplication {
 		SpringApplication.run(JaguarMedsysBackendApplication.class, args);
 	}
 
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
     /*
 	@Bean
     ApplicationRunner init(DoctorRepository repository) {
