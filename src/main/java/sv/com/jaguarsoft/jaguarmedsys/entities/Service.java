@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -29,4 +31,14 @@ public class Service {
     targetEntity=Appointment.class, 
     fetch=FetchType.LAZY)
     private List<Appointment> appointments;
+
+    @PrePersist
+    public void onPrePersist() {
+        this.created = LocalDateTime.now();
+    }
+      
+    @PreUpdate
+    public void onPreUpdate() {
+        this.modified = LocalDateTime.now();
+    }
 }

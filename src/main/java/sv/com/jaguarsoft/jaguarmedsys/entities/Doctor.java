@@ -11,6 +11,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 @Entity(name="doctors")
 @Getter @Setter
@@ -32,4 +34,13 @@ public class Doctor {
     fetch=FetchType.LAZY)
     private List<Appointment> appointments;     
   
+    @PrePersist
+    public void onPrePersist() {
+        this.created = LocalDateTime.now();
+    }
+      
+    @PreUpdate
+    public void onPreUpdate() {
+        this.modified = LocalDateTime.now();
+    }
 }

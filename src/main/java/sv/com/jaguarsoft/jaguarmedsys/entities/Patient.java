@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -45,4 +47,14 @@ public class Patient {
         targetEntity=Appointment.class, 
         fetch=FetchType.LAZY)
     private List<Appointment> appointments;
+
+    @PrePersist
+    public void onPrePersist() {
+        this.created = LocalDateTime.now();
+    }
+      
+    @PreUpdate
+    public void onPreUpdate() {
+        this.modified = LocalDateTime.now();
+    }
 }
