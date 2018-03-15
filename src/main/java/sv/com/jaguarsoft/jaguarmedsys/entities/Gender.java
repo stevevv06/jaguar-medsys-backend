@@ -10,13 +10,18 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GenerationType;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+
 
 @Entity(name="genders")
 @Getter @Setter
 @NoArgsConstructor
 @ToString @EqualsAndHashCode
 public class Gender {
-    @Id @GeneratedValue
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
     private @NonNull String gender;    
     private @NonNull LocalDateTime created;
@@ -27,4 +32,14 @@ public class Gender {
     targetEntity=Patient.class, 
     fetch=FetchType.LAZY)
     private List<Patient> patients;
+
+    @PrePersist
+    public void onPrePersist() {
+        this.created = LocalDateTime.now();
+    }
+      
+    @PreUpdate
+    public void onPreUpdate() {
+        this.updated = LocalDateTime.now();
+    }
 }

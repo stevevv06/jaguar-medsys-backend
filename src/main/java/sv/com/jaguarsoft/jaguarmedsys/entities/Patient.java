@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,7 +21,8 @@ import javax.persistence.FetchType;
 @NoArgsConstructor
 @ToString @EqualsAndHashCode
 public class Patient {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
     private @NonNull String fullName;
 

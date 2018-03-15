@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,7 +17,8 @@ import javax.persistence.FetchType;
 @NoArgsConstructor
 @ToString @EqualsAndHashCode
 public class Doctor {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
     private @NonNull String fullName;
     private @NonNull String specialities;
