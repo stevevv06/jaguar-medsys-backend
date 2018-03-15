@@ -40,6 +40,6 @@ public class Gender {
       
     @PreUpdate
     public void onPreUpdate() {
-        this.updated = LocalDateTime.now();
+        this.modified = LocalDateTime.now();
     }
 }
