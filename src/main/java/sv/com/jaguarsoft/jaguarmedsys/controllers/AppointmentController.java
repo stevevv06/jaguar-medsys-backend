@@ -40,7 +40,7 @@ class AppointmentController {
             {
                 AppointmentScheduleDTO dto = new AppointmentScheduleDTO();
                 dto.setId(app.getId());
-                dto.setTitle(app.getPatient().getFullName());
+                dto.setTitle(app.getPatient().getTitle());
                 dto.setStart(app.getStart());
                 dto.setEnd(app.getEnd());
                 dto.setColor(app.getDoctor().getColor());

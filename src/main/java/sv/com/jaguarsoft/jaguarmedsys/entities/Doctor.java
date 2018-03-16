@@ -22,7 +22,7 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
-    private @NonNull String fullName;
+    private @NonNull String title;
     private @NonNull String specialities;
     private @NonNull String color;
     private @NonNull LocalDateTime created;

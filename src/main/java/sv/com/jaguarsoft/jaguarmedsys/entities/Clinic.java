@@ -27,7 +27,7 @@ public class Clinic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
-    private @NonNull String clinic;
+    private @NonNull String title;
     private @NonNull String address;
     private @NonNull String phone1;
     private String phone2;

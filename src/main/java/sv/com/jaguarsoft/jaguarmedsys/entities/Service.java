@@ -22,7 +22,7 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
-    private @NonNull String service;
+    private @NonNull String title;
     private @NonNull LocalDateTime created;
     private LocalDateTime modified;
 

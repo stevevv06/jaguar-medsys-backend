@@ -25,7 +25,7 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
-    private @NonNull String fullName;
+    private @NonNull String title;
     private @NonNull String commercialName;
     private @NonNull String address;
     private @NonNull String phone1;

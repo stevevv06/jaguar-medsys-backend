@@ -23,7 +23,7 @@ public class Gender {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
-    private @NonNull String gender;    
+    private @NonNull String title;    
     private @NonNull LocalDateTime created;
     private LocalDateTime modified;
 
