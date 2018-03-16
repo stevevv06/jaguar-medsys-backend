@@ -28,6 +28,9 @@ public class Patient {
     private Long id;    
     private @NonNull String title;
 
+    private @NonNull String names;
+    private @NonNull String surnames;
+
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="gender_id", 
@@ -36,9 +39,14 @@ public class Patient {
 
     private LocalDate birthDate;
     private String address;
+    private String workplace;
     private @NonNull String phone1;
     private String phone2;
     private String email;
+    private String desease;
+    private String allergies;
+    private String reasonForConsultation;
+    private LocalDate lastVisitToMedic;    
     private @NonNull LocalDateTime created;
     private LocalDateTime modified;
  
