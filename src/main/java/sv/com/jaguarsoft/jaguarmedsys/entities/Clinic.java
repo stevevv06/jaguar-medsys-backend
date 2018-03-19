@@ -2,15 +2,13 @@ package sv.com.jaguarsoft.jaguarmedsys.entities;
 
 import lombok.*;
 import com.fasterxml.jackson.annotation.*;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +21,7 @@ import javax.persistence.FetchType;
 @JsonIdentityInfo(
   generator = ObjectIdGenerators.PropertyGenerator.class, 
   property = "id")
-public class Clinic {
+public class Clinic extends AuditableEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
@@ -38,8 +36,6 @@ public class Clinic {
         referencedColumnName="id")
     private @NonNull Company company;
 
-    private @NonNull LocalDateTime created;
-    private LocalDateTime modified;
 
     @JsonBackReference
     @OneToMany(mappedBy="clinic", 
@@ -47,13 +43,5 @@ public class Clinic {
         fetch=FetchType.LAZY)
     private List<Appointment> appointments;
 
-    @PrePersist
-    public void onPrePersist() {
-        this.created = LocalDateTime.now();
-    }
-      
-    @PreUpdate
-    public void onPreUpdate() {
-        this.modified = LocalDateTime.now();
-    }
+
 }
