@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -19,7 +21,7 @@ import javax.persistence.FetchType;
 @JsonIdentityInfo(
   generator = ObjectIdGenerators.PropertyGenerator.class, 
   property = "id")
-public class Company extends AuditableEntity{
+public class Company extends AuditableEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    

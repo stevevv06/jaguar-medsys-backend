@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,18 +20,22 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 
 @Entity(name="patients")
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class, 
+  property = "id")
 @Getter @Setter
 @NoArgsConstructor
 @ToString @EqualsAndHashCode
-public class Patient extends AuditableEntity{
-    @Id
+public class Patient extends AuditableEntity implements Serializable{
+    private static final long serialVersionUID = -4698482989905461816L;
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
     private @NonNull String title;
     private @NonNull String names;
     private @NonNull String surnames;
 
-    @JsonManagedReference
+    @JsonBackReference(value="genderBackRef")
     @ManyToOne
     @JoinColumn(name="gender_id",  
         referencedColumnName="id")
@@ -47,7 +52,7 @@ public class Patient extends AuditableEntity{
     private String reasonForConsultation;
     private LocalDate lastVisitToMedic;    
  
-    @JsonBackReference
+    @JsonManagedReference(value="appointmentManagedRef")
     @OneToMany(mappedBy="patient", 
         targetEntity=Appointment.class, 
         fetch=FetchType.LAZY)

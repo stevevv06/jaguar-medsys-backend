@@ -3,14 +3,14 @@ values(1,'Masculino','2018-03-11 10:10:10',null);
 insert into genders(id, title, created,modified)
 values(2,'Femenino','2018-03-11 10:10:10',null);
 
-insert into patients(id, title, gender_id, birth_date, address, phone1, phone2, email, created,modified)
-values (1, 'Pedro Perez', 1, '1970-01-01','YUI','2323-4545',null,null,'2018-03-11 10:10:10',null);
-insert into patients(id, title, gender_id, birth_date, address, phone1, phone2, email, created,modified)
-values (2, 'Luis Lopez', 1, '1979-04-21','POI','2323-3438',null,'a@a.com','2018-03-11 10:10:10',null);
-insert into patients(id, title, gender_id, birth_date, address, phone1, phone2, email, created,modified)
-values (3, 'Maria Martinez', 2, '1986-05-01','TYU','2323-0909',null,'z@z.com','2018-03-11 10:10:10',null);
-insert into patients(id, title, gender_id, birth_date, address, phone1, phone2, email, created,modified)
-values (4, 'Consuelo Candelaria', 2, '1989-08-01','LKJ','2323-6769',null,null,'2018-03-11 10:10:10',null);
+insert into patients(id, title, names, surnames, gender_id, birth_date, address, phone1, phone2, email, created,modified)
+values (1, 'Pedro Perez', 'Pedro', 'Perez', 1, '1970-01-15','YUI','2323-4545',null,null,'2018-03-11 10:10:10',null);
+insert into patients(id, title, names, surnames, gender_id, birth_date, address, phone1, phone2, email, created,modified)
+values (2, 'Luis Lopez', 'Luis', 'Lopez', 1, '1979-04-21','POI','2323-3438',null,'a@a.com','2018-03-11 10:10:10',null);
+insert into patients(id, title, names, surnames, gender_id, birth_date, address, phone1, phone2, email, created,modified)
+values (3, 'Maria Martinez', 'Maria', 'Martinez', 2, '1986-05-01','TYU','2323-0909',null,'z@z.com','2018-03-11 10:10:10',null);
+insert into patients(id, title, names, surnames, gender_id, birth_date, address, phone1, phone2, email, created,modified)
+values (4, 'Consuelo Candelaria', 'Consuelo', 'Candelaria', 2, '1989-08-01','LKJ','2323-6769',null,null,'2018-03-11 10:10:10',null);
 
 insert into doctors (id,title, specialities, color, created, modified) 
 values (1,'Dr 1', 'ABC', 'blue','2018-03-11 10:10:10',null);

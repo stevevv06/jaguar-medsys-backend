@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -21,7 +23,7 @@ import javax.persistence.FetchType;
 @JsonIdentityInfo(
   generator = ObjectIdGenerators.PropertyGenerator.class, 
   property = "id")
-public class Clinic extends AuditableEntity{
+public class Clinic extends AuditableEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
