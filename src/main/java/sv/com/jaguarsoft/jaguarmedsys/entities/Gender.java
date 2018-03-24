@@ -29,11 +29,11 @@ public class Gender extends AuditableEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
     private @NonNull String title;    
-
-    @JsonManagedReference
+    
     @OneToMany(mappedBy="gender", 
-    targetEntity=Patient.class, 
-    fetch=FetchType.LAZY)
+        targetEntity=Patient.class, 
+        fetch=FetchType.LAZY)
+    //@JsonManagedReference
     private List<Patient> patients;
 
 }

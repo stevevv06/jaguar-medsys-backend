@@ -21,51 +21,33 @@ public class Appointment extends AuditableEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @JsonBackReference
+    
     @ManyToOne
     @JoinColumn(name="patient_id", 
         referencedColumnName="id")
+    @JsonManagedReference
     private @NonNull Patient patient;
-
-    @JsonBackReference
-    @ManyToOne
+    
+    @ManyToOne    
     @JoinColumn(name="doctor_id", 
         referencedColumnName="id")    
+    @JsonManagedReference
     private Doctor doctor;
 
-    @JsonBackReference
-    @ManyToOne
+    @ManyToOne    
     @JoinColumn(name="service_id", 
         referencedColumnName="id")
+    @JsonManagedReference
     private Service service;
-
-    @JsonBackReference
+    
     @ManyToOne
     @JoinColumn(name="clinic_id", 
         referencedColumnName="id")
+    @JsonManagedReference        
     private Clinic clinic;
 
     private LocalDateTime start;
     private LocalDateTime end;
 
-    public Long getId(){
-        return this.id;
-    }
-
-    public Patient getPatient(){
-        return this.patient;
-    }
-
-    public Doctor getDoctor(){
-        return this.doctor;
-    }
-
-    public Service getService(){
-        return this.service;
-    }
-    public Clinic getClinic(){
-        return this.clinic;
-    }
-    
+        
 }

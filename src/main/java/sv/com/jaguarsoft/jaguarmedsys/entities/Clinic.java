@@ -31,18 +31,17 @@ public class Clinic extends AuditableEntity implements Serializable{
     private @NonNull String address;
     private @NonNull String phone1;
     private String phone2;
-
-    @JsonManagedReference
+    
     @ManyToOne
     @JoinColumn(name="company_id", 
         referencedColumnName="id")
+    @JsonManagedReference
     private @NonNull Company company;
-
-
-    @JsonBackReference
+    
     @OneToMany(mappedBy="clinic", 
         targetEntity=Appointment.class, 
         fetch=FetchType.LAZY)
+    @JsonBackReference
     private List<Appointment> appointments;
 
 

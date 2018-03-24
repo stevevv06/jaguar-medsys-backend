@@ -25,11 +25,11 @@ public class Doctor extends AuditableEntity implements Serializable{
     private @NonNull String title;
     private @NonNull String specialities;
     private @NonNull String color;
-
-    @JsonBackReference
+    
     @OneToMany(mappedBy="doctor", 
-    targetEntity=Appointment.class, 
-    fetch=FetchType.LAZY)
+        targetEntity=Appointment.class, 
+        fetch=FetchType.LAZY)
+    @JsonBackReference
     private List<Appointment> appointments;     
   
 }

@@ -32,10 +32,10 @@ public class Company extends AuditableEntity implements Serializable{
     private @NonNull String phone2;
     private byte[] logo;    
 
-    @JsonBackReference
     @OneToMany(mappedBy="company", 
     targetEntity=Clinic.class, 
     fetch=FetchType.LAZY)
+    @JsonBackReference
     private List<Clinic> clinics; 
 
 }

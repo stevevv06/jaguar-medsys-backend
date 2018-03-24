@@ -34,11 +34,11 @@ public class Patient extends AuditableEntity implements Serializable{
     private @NonNull String title;
     private @NonNull String names;
     private @NonNull String surnames;
-
-    @JsonBackReference(value="genderBackRef")
+    
     @ManyToOne
     @JoinColumn(name="gender_id",  
         referencedColumnName="id")
+    @JsonBackReference(value="genderBackRef")
     private @NonNull Gender gender;
 
     private LocalDate birthDate;
@@ -52,12 +52,14 @@ public class Patient extends AuditableEntity implements Serializable{
     private String reasonForConsultation;
     private LocalDate lastVisitToMedic;    
  
-    @JsonManagedReference(value="appointmentManagedRef")
     @OneToMany(mappedBy="patient", 
         targetEntity=Appointment.class, 
         fetch=FetchType.LAZY)
+    //@JsonBackReference(value="appointmentManagedRef")
+    @JsonIgnore
     private List<Appointment> appointments;
 
+    
     @PrePersist
     public void onPrePersist() {
         this.title = this.names + " " + this.surnames;

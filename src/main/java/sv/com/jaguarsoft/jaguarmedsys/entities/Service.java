@@ -23,11 +23,11 @@ public class Service extends AuditableEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
     private @NonNull String title;
-
-    @JsonBackReference
+    
     @OneToMany(mappedBy="service", 
-    targetEntity=Appointment.class, 
-    fetch=FetchType.LAZY)
+        targetEntity=Appointment.class, 
+        fetch=FetchType.LAZY)
+    @JsonBackReference
     private List<Appointment> appointments;
 
 }
