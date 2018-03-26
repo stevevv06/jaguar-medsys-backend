@@ -35,7 +35,8 @@ public class Patient extends AuditableEntity implements Serializable{
     private @NonNull String names;
     private @NonNull String surnames;
     
-    @ManyToOne http://www.baeldung.com/spring-data-rest-relationships
+    //http://www.baeldung.com/spring-data-rest-relationships
+    @ManyToOne
     @JoinColumn(name="gender_id",  
         referencedColumnName="id")
     @JsonBackReference(value="genderBackRef")

@@ -3,6 +3,7 @@ package sv.com.jaguarsoft.jaguarmedsys.entities;
 import java.time.LocalDateTime;
 
 import org.springframework.data.rest.core.config.Projection;
+import sv.com.jaguarsoft.jaguarmedsys.entities.Patient;
 
 import java.time.LocalDate;
 
@@ -18,9 +19,5 @@ public interface PatientPrj{
     LocalDateTime getCreated();
     LocalDateTime getModified();
 
-    @Projection(name = "GenderPrj", types = Gender.class)
-    interface GenderPrj{
-        Long getId();
-        String getTitle();
-    }
+    
 }

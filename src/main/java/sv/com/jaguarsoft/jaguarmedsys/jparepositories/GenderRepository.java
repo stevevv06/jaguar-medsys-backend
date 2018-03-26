@@ -15,6 +15,6 @@ import sv.com.jaguarsoft.jaguarmedsys.entities.Gender;
 @CrossOrigin(origins = "http://localhost:4200")
 public interface GenderRepository extends JpaRepository<Gender, Long> {
 
-    @RestResource(path = "findByTitle", rel = "findByTitle")
+    @RestResource(path = "findByTitle")
     public Page<Gender> findByTitleContainingIgnoreCase(@Param("title") String title, Pageable p);
 }
